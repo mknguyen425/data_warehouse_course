@@ -32,7 +32,8 @@ SELECT
   CASE
     WHEN is_chiller_stock IS TRUE THEN 'Chiller Stock' 
     WHEN is_chiller_stock IS false THEN 'Not Chiller Stock'
-    ELSE 'Unknown'
+    WHEN is_chiller_stock IS NULL THEN 'Undefined'
+    ELSE 'Invalid'
   END AS is_chiller_stock
 FROM dim_product__cast_type
 )
